@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.kosteklvp.bowling.BowlingUtils.Punctation;
+import com.kosteklvp.utils.Utils;
 
 public class PointsConverter {
 
@@ -28,17 +29,19 @@ public class PointsConverter {
 
     Integer previousPoint = 0;
 
-    for (Integer point : points) {
+    for (int i = 0; i < points.size(); i++) {
+      Integer point = points.get(i);
+
       if (point == 0) {
         symbols.add(Punctation.ZERO.getSymbol());
       } else if (point == 10) {
         symbols.add(Punctation.STRIKE.getSymbol());
         symbols.add(Punctation.NONE.getSymbol());
-      } else if (previousPoint + point == 10) {
+      } else if (previousPoint + point == 10 && i % 2 != 0) {
         symbols.add(Punctation.SPARE.getSymbol());
         previousPoint = 0;
       } else {
-        symbols.add(Integer.toString(point).charAt(0)); // TODO do metody
+        symbols.add(Utils.toChar(point));
       }
 
       previousPoint = point;

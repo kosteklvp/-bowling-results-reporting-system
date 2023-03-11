@@ -94,7 +94,7 @@ class PointsConverterTest {
   class ConvertToSymbols {
 
     @Test
-    void convertsZerosToDashesSymbol() {
+    void convertsZerosToDashes() {
       List<Integer> zeros = List.of(0, 0, 0);
 
       var symbols = PointsConverter.convertToSymbols(zeros);
@@ -105,7 +105,7 @@ class PointsConverterTest {
 
     @ParameterizedTest
     @MethodSource("sparePointsProvider")
-    void convertsPairsEqualToTenToDashesSymbol(List<Integer> points) {
+    void convertsPairsEqualToTenToDashes(List<Integer> points) {
 
       var symbols = PointsConverter.convertToSymbols(points);
 
@@ -124,6 +124,28 @@ class PointsConverterTest {
           List.of(7, 3),
           List.of(8, 2),
           List.of(9, 1));
+    }
+
+    @ParameterizedTest
+    @MethodSource("notSparePointsProvider")
+    void doesNotConvertPairsEqualToTenToDashesIfTheseAreOddNumbers(List<Integer> points) {
+
+      var symbols = PointsConverter.convertToSymbols(points);
+
+      var expectedSymbols = List.of(Utils.toChar(points.get(0)), Utils.toChar(points.get(1)), Utils.toChar(points.get(2)));
+      assertThat(symbols).hasSameElementsAs(expectedSymbols);
+    }
+
+    static Stream<List<Integer>> notSparePointsProvider() {
+      return Stream.of(
+          List.of(8, 1, 9),
+          List.of(7, 2, 8),
+          List.of(6, 3, 7),
+          List.of(5, 4, 6),
+          List.of(4, 5, 5),
+          List.of(3, 6, 4),
+          List.of(2, 7, 3),
+          List.of(1, 8, 2));
     }
 
     @Test
