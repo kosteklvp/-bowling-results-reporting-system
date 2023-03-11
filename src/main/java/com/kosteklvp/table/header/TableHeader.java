@@ -1,6 +1,6 @@
-package com.kosteklvp.table.heading;
+package com.kosteklvp.table.header;
 
-public enum TableHeading implements Heading {
+public enum TableHeader implements Header {
   PLAYER("Player"),
   COLUMN_1("1"),
   COLUMN_2("2"),
@@ -27,7 +27,7 @@ public enum TableHeading implements Heading {
 
   private final String label;
 
-  private TableHeading(String label) {
+  private TableHeader(String label) {
     this.label = label;
   }
 

@@ -67,7 +67,7 @@ class PointsConverterTest {
 
       var points = PointsConverter.convertToPoints(input);
 
-      assertThat(points).hasSameElementsAs(expectedResult);
+      assertThat(points).containsExactlyElementsOf(expectedResult);
     }
 
     static Stream<Arguments> stringInputAndResultProvider() {
@@ -105,12 +105,12 @@ class PointsConverterTest {
 
     @ParameterizedTest
     @MethodSource("sparePointsProvider")
-    void convertsPairsEqualToTenToDashes(List<Integer> points) {
+    void convertsPairsToDashesIfAreEqualToTen(List<Integer> points) {
 
       var symbols = PointsConverter.convertToSymbols(points);
 
       var expectedSymbols = List.of(Utils.toChar(points.get(0)), '/');
-      assertThat(symbols).hasSameElementsAs(expectedSymbols);
+      assertThat(symbols).containsExactlyElementsOf(expectedSymbols);
     }
 
     static Stream<List<Integer>> sparePointsProvider() {
@@ -126,26 +126,34 @@ class PointsConverterTest {
           List.of(9, 1));
     }
 
-    @ParameterizedTest
-    @MethodSource("notSparePointsProvider")
-    void doesNotConvertPairsEqualToTenToDashesIfTheseAreOddNumbers(List<Integer> points) {
+    @Test
+    void doesNotConvertPairsToDashesIfTheseAreOddSymbols() {
+      List<Integer> points = List.of(5, 4, 6);
 
       var symbols = PointsConverter.convertToSymbols(points);
 
-      var expectedSymbols = List.of(Utils.toChar(points.get(0)), Utils.toChar(points.get(1)), Utils.toChar(points.get(2)));
-      assertThat(symbols).hasSameElementsAs(expectedSymbols);
+      var expectedSymbols = List.of('5', '4', '6');
+      assertThat(symbols).containsExactlyElementsOf(expectedSymbols);
     }
 
-    static Stream<List<Integer>> notSparePointsProvider() {
-      return Stream.of(
-          List.of(8, 1, 9),
-          List.of(7, 2, 8),
-          List.of(6, 3, 7),
-          List.of(5, 4, 6),
-          List.of(4, 5, 5),
-          List.of(3, 6, 4),
-          List.of(2, 7, 3),
-          List.of(1, 8, 2));
+    @Test
+    void doesNotConvertPairsToDashesIfTheseAreOddSymbolsAndStrikeOccursBefore() {
+      List<Integer> points = List.of(10, 5, 4, 6, 1);
+
+      var symbols = PointsConverter.convertToSymbols(points);
+
+      var expectedSymbols = List.of(' ', 'X', '5', '4', '6', '1');
+      assertThat(symbols).containsExactlyElementsOf(expectedSymbols);
+    }
+
+    @Test
+    void doesNotConvertPairsToDashesIfTheseAreOddSymbolsAnd2StrikesOccursBefore() {
+      List<Integer> points = List.of(10, 10, 5, 4, 6, 1);
+
+      var symbols = PointsConverter.convertToSymbols(points);
+
+      var expectedSymbols = List.of(' ', 'X', ' ', 'X', '5', '4', '6', '1');
+      assertThat(symbols).containsExactlyElementsOf(expectedSymbols);
     }
 
     @Test
@@ -159,12 +167,12 @@ class PointsConverterTest {
     }
 
     @Test
-    void addAdditionalBlankSymbolAfterXSymbol() {
+    void addAdditionalBlankSymbolBeforeXSymbol() {
       List<Integer> tens = List.of(10, 10, 10);
 
       var symbols = PointsConverter.convertToSymbols(tens);
 
-      var expectedSymbols = List.of('X', ' ', 'X', ' ', 'X', ' ');
+      var expectedSymbols = List.of(' ', 'X', ' ', 'X', ' ', 'X');
       assertThat(symbols).hasSameElementsAs(expectedSymbols);
     }
 
@@ -174,13 +182,13 @@ class PointsConverterTest {
 
       var symbols = PointsConverter.convertToSymbols(points);
 
-      assertThat(symbols).hasSameElementsAs(expectedSymbols);
+      assertThat(symbols).containsExactlyElementsOf(expectedSymbols);
     }
 
     static Stream<Arguments> pointsAndExpectedSymbolsProvider() {
       return Stream.of(
           arguments(List.of(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
-              List.of('X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ')),
+              List.of(' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X')),
 
           arguments(List.of(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
               List.of('-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-')),
@@ -192,10 +200,10 @@ class PointsConverterTest {
               List.of('5', '/', '5', '/', '5', '/', '5', '/', '5', '/', '5', '/', '5', '/', '5', '/', '5', '/', '5', '/')),
 
           arguments(List.of(7, 2, 9, 0, 9, 0, 9, 0, 9, 1, 9, 1, 10, 10, 8, 0, 7, 1),
-              List.of('7', '2', '9', '-', '9', '-', '9', '-', '9', '/', '9', '/', 'X', ' ', 'X', ' ', '8', '-', '7', '1')),
+              List.of('7', '2', '9', '-', '9', '-', '9', '-', '9', '/', '9', '/', ' ', 'X', ' ', 'X', '8', '-', '7', '1')),
 
           arguments(List.of(0, 6, 9, 1, 10, 6, 3, 7, 1, 9, 0, 5, 5, 10, 7, 3, 7, 0),
-              List.of('-', '6', '9', '/', 'X', ' ', '6', '3', '7', '1', '9', '-', '5', '/', 'X', ' ', '7', '/', '7', '-')));
+              List.of('-', '6', '9', '/', ' ', 'X', '6', '3', '7', '1', '9', '-', '5', '/', ' ', 'X', '7', '/', '7', '-')));
     }
 
   }

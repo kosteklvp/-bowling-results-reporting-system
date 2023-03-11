@@ -29,15 +29,13 @@ public class PointsConverter {
 
     Integer previousPoint = 0;
 
-    for (int i = 0; i < points.size(); i++) {
-      Integer point = points.get(i);
-
+    for (Integer point : points) {
       if (point == 0) {
         symbols.add(Punctation.ZERO.getSymbol());
       } else if (point == 10) {
-        symbols.add(Punctation.STRIKE.getSymbol());
         symbols.add(Punctation.NONE.getSymbol());
-      } else if (previousPoint + point == 10 && i % 2 != 0) {
+        symbols.add(Punctation.STRIKE.getSymbol());
+      } else if (previousPoint + point == 10 && symbols.size() % 2 != 0) {
         symbols.add(Punctation.SPARE.getSymbol());
         previousPoint = 0;
       } else {

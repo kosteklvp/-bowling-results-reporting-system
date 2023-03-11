@@ -5,8 +5,8 @@ import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
 
 import java.util.List;
 
-import com.kosteklvp.table.heading.Heading;
-import com.kosteklvp.table.heading.HeadingsNotSetException;
+import com.kosteklvp.table.header.Header;
+import com.kosteklvp.table.header.HeadersNotSetException;
 import com.kosteklvp.table.row.Row;
 
 import lombok.Builder;
@@ -14,18 +14,18 @@ import lombok.Builder;
 @Builder
 public class TableGenerator {
 
-  private List<Heading> headings;
+  private List<Header> headings;
 
   private List<Row> rows;
 
   public String generate() {
     if (isEmpty(headings)) {
-      throw new HeadingsNotSetException();
+      throw new HeadersNotSetException();
     }
 
     final StringBuilder tableText = new StringBuilder();
 
-    addBeginning(tableText);
+//    addBeginning(tableText);
 
     addHeadings(tableText);
 
@@ -54,7 +54,7 @@ public class TableGenerator {
   private void addRows(StringBuilder tableText) {
     rows.forEach(row -> {
       tableText.append(" | ").append(row.getPlayerName()).append(" | ");
-      row.getValues().forEach(value -> tableText.append(value).append(" | "));
+//      row.getValues().forEach(value -> tableText.append(value).append(" | "));
       tableText.append("\n");
     });
   }
