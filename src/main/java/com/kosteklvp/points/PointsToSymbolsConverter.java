@@ -1,31 +1,18 @@
-package com.kosteklvp.converter;
-
-import static com.kosteklvp.bowling.BowlingUtils.MAX_NUMBER_OF_THROWS;
+package com.kosteklvp.points;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import com.kosteklvp.bowling.BowlingUtils;
 import com.kosteklvp.bowling.BowlingUtils.Punctation;
+import com.kosteklvp.converter.Converter;
 import com.kosteklvp.utils.Utils;
 
-public class PointsConverter {
+public class PointsToSymbolsConverter implements Converter<List<Integer>, List<Character>> {
 
-  public static List<Integer> convertToPoints(String pointsString) {
-    Pattern integerPattern = Pattern.compile("\\d+");
-    Matcher matcher = integerPattern.matcher(pointsString);
-
-    List<Integer> points = new ArrayList<Integer>();
-    while (matcher.find()) {
-      points.add(Integer.valueOf(matcher.group()));
-    }
-
-    return points;
-  }
-
-  public static List<Character> convertToSymbols(List<Integer> points) {
-    List<Character> symbols = new ArrayList<>(MAX_NUMBER_OF_THROWS);
+  @Override
+  public List<Character> convert(List<Integer> points) {
+    List<Character> symbols = new ArrayList<>(BowlingUtils.MAX_NUMBER_OF_THROWS);
 
     Integer previousPoint = 0;
 
@@ -45,7 +32,13 @@ public class PointsConverter {
       previousPoint = point;
     }
 
+    while (symbols.size() < BowlingUtils.MAX_NUMBER_OF_THROWS) {
+      symbols.add(' ');
+    }
+
     return symbols;
   }
+
+  // test czy dodaj ostatnią spację
 
 }

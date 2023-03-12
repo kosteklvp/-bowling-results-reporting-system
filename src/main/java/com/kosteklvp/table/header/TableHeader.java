@@ -1,16 +1,19 @@
 package com.kosteklvp.table.header;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum TableHeader implements Header {
   PLAYER("Player"),
-  COLUMN_1("1"),
-  COLUMN_2("2"),
-  COLUMN_3("3"),
-  COLUMN_4("4"),
-  COLUMN_5("5"),
-  COLUMN_6("6"),
-  COLUMN_7("7"),
-  COLUMN_8("8"),
-  COLUMN_9("9"),
+  COLUMN_1(" 1"),
+  COLUMN_2(" 2"),
+  COLUMN_3(" 3"),
+  COLUMN_4(" 4"),
+  COLUMN_5(" 5"),
+  COLUMN_6(" 6"),
+  COLUMN_7(" 7"),
+  COLUMN_8(" 8"),
+  COLUMN_9(" 9"),
   COLUMN_10("10"),
   COLUMN_11("11"),
   COLUMN_12("12"),
@@ -34,6 +37,10 @@ public enum TableHeader implements Header {
   @Override
   public String getLabel() {
     return label;
+  }
+
+  public static List<Header> getAll() {
+    return Arrays.asList(TableHeader.values());
   }
 
 }

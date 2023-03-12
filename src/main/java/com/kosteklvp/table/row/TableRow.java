@@ -18,9 +18,9 @@ public class TableRow implements Row {
     return playerName;
   }
 
-//  public List<String> get
-
-//  public List<String>
-
+  @Override
+  public List<Integer> getPoints() {
+    return points;
+  }
 
 }
