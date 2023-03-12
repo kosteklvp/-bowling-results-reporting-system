@@ -18,11 +18,7 @@ public class Application {
   private static void run(String pathToFile) throws IOException {
     Game game = createGameFromFile(pathToFile);
 
-    TableCreator.of(game).create();
-
-//    List<Row> rows = RowCreator.instance(new RowConverter(LineToIntsConverter.instance()), lines).getAllRows();
-//
-    System.out.print(TableCreator.of(game).create());
+    printTableOf(game);
   }
 
   private static Game createGameFromFile(String pathToFile) throws IOException {
@@ -31,6 +27,10 @@ public class Application {
     List<PlayerPlay> playerPlays = LinesToPlayerPlaysConverter.instance().convert(lines);
 
     return Game.create(playerPlays);
+  }
+
+  private static void printTableOf(Game game) {
+    System.out.print(TableCreator.of(game).create());
   }
 
 }

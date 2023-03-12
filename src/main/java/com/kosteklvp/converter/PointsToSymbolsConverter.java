@@ -19,7 +19,7 @@ public class PointsToSymbolsConverter implements Converter<List<Integer>, List<C
       if (point == 0) {
         symbols.add(PointsType.ZERO.getSymbol());
       } else if (point == 10) {
-        symbols.add(PointsType.NONE.getSymbol());
+//        symbols.add(PointsType.NONE.getSymbol());
         symbols.add(PointsType.STRIKE.getSymbol());
       } else if (previousPoint + point == 10 && symbols.size() % 2 != 0) {
         symbols.add(PointsType.SPARE.getSymbol());
@@ -39,5 +39,6 @@ public class PointsToSymbolsConverter implements Converter<List<Integer>, List<C
   }
 
   // test czy dodaj ostatnią spację
+  // TODO singleton
 
 }

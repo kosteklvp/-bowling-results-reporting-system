@@ -19,7 +19,7 @@ public class TenthFrame implements Frame {
 
   private Roll firstRoll;
   private Roll secondRoll;
-  private Roll thirdRoll;
+  private Roll thirdRoll = Roll.none();
 
   @Override
   public Roll getFirstRoll() {

@@ -26,7 +26,7 @@ public enum TableHeader implements Header {
   COLUMN_19("19"),
   COLUMN_20("20"),
   COLUMN_21("21"),
-  RESULT("Result");
+  SCORE("Score");
 
   private final String label;
 

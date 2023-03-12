@@ -21,6 +21,7 @@ public class PlayerPlay {
 
   private String playerName;
   private List<Frame> frames;
+  private int finalScore;
 
   public List<Roll> getAllTrueRolls() {
     return RollUtils.getTrueRolls(getAllRolls());
@@ -43,6 +44,7 @@ public class PlayerPlay {
     PlayerPlay playerPlay = new PlayerPlay();
     playerPlay.setPlayerName(playerName);
     playerPlay.setFrames(frames);
+    playerPlay.setFinalScore(0);
 
     return playerPlay;
   }
