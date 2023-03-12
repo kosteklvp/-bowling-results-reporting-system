@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kosteklvp.bowling.BowlingUtils;
-import com.kosteklvp.bowling.BowlingUtils.Punctation;
+import com.kosteklvp.bowling.BowlingUtils.PointsType;
 import com.kosteklvp.converter.Converter;
 import com.kosteklvp.utils.Utils;
 
@@ -12,18 +12,18 @@ public class PointsToSymbolsConverter implements Converter<List<Integer>, List<C
 
   @Override
   public List<Character> convert(List<Integer> points) {
-    List<Character> symbols = new ArrayList<>(BowlingUtils.MAX_NUMBER_OF_THROWS);
+    List<Character> symbols = new ArrayList<>(BowlingUtils.MAX_NUMBER_OF_ROLLS);
 
     Integer previousPoint = 0;
 
     for (Integer point : points) {
       if (point == 0) {
-        symbols.add(Punctation.ZERO.getSymbol());
+        symbols.add(PointsType.ZERO.getSymbol());
       } else if (point == 10) {
-        symbols.add(Punctation.NONE.getSymbol());
-        symbols.add(Punctation.STRIKE.getSymbol());
+        symbols.add(PointsType.NONE.getSymbol());
+        symbols.add(PointsType.STRIKE.getSymbol());
       } else if (previousPoint + point == 10 && symbols.size() % 2 != 0) {
-        symbols.add(Punctation.SPARE.getSymbol());
+        symbols.add(PointsType.SPARE.getSymbol());
         previousPoint = 0;
       } else {
         symbols.add(Utils.toChar(point));
@@ -32,7 +32,7 @@ public class PointsToSymbolsConverter implements Converter<List<Integer>, List<C
       previousPoint = point;
     }
 
-    while (symbols.size() < BowlingUtils.MAX_NUMBER_OF_THROWS) {
+    while (symbols.size() < BowlingUtils.MAX_NUMBER_OF_ROLLS) {
       symbols.add(' ');
     }
 

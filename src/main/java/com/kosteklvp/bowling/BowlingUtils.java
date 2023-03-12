@@ -2,9 +2,11 @@ package com.kosteklvp.bowling;
 
 public class BowlingUtils {
 
-  public static final int MAX_NUMBER_OF_THROWS = 21;
+  public static final int MAX_NUMBER_OF_ROLLS = 21;
+  public static final int MAX_NUMBER_OF_KNOCKED_PINS = 10;
+  public static final int NUMBER_OF_NORMAL_FRAMES_IN_A_GAME = 9;
 
-  public enum Punctation {
+  public enum PointsType { // PointType
     NONE(' '),
     ZERO('-'),
     SPARE('/'),
@@ -12,7 +14,7 @@ public class BowlingUtils {
 
     private final char symbol;
 
-    Punctation(char symbol) {
+    PointsType(char symbol) {
       this.symbol = symbol;
     }
 
@@ -24,23 +26,34 @@ public class BowlingUtils {
 
   // metoda dla zywklych
 
-  public static boolean isStrike(int points) {
-    return points == 10;
+  public static boolean isStrike(int numberOfPinsKnockedInFirstRoll) {
+    return numberOfPinsKnockedInFirstRoll == MAX_NUMBER_OF_KNOCKED_PINS;
   }
 
-  public static boolean isSpare(int points, boolean isEven) {
-    return points == 10 && isEven;
+  public static boolean isSpare(int numberOfPinsKnockedInFirstRoll, int numberOfPinsKnockedInSecondRoll) {
+    return numberOfPinsKnockedInFirstRoll + numberOfPinsKnockedInSecondRoll == MAX_NUMBER_OF_KNOCKED_PINS &&
+        numberOfPinsKnockedInFirstRoll != MAX_NUMBER_OF_KNOCKED_PINS &&
+        numberOfPinsKnockedInSecondRoll != MAX_NUMBER_OF_KNOCKED_PINS;
   }
 
-  public static boolean isDoubleBonus(Punctation previousPunctuation, Punctation prepreviousPunctuation) {
-    return previousPunctuation == Punctation.SPARE ||
-        previousPunctuation == Punctation.STRIKE ||
-        prepreviousPunctuation == Punctation.STRIKE;
-  }
+//  public static boolean isSpare(int numberOfPinsKnockedInFirstRoll, int numberOfPinsKnockedInSecondRoll) {
+//    return numberOfPinsKnockedInFirstRoll + numberOfPinsKnockedInSecondRoll == MAX_NUMBER_OF_KNOCKED_PINS;
+//  }
 
-  public static boolean isTripleBonus(Punctation previousPunctuation, Punctation prepreviousPunctuation) {
-    return prepreviousPunctuation == Punctation.STRIKE &&
-        (previousPunctuation == Punctation.STRIKE || previousPunctuation == Punctation.SPARE);
-  }
+//  public static boolean isStrike(PointsType type) {
+//    return type == PointsType.STRIKE;
+//  }
+//
+//  public static boolean isSpare(PointsType type) {
+//    return type == PointsType.SPARE;
+//  }
+//
+//  public static boolean isDoubleBonus(PointsType previousPointType) {
+//    return isSpare(previousPointType) || isStrike(previousPointType);
+//  }
+//
+//  public static boolean isTripleBonus(PointsType previousPointType, PointsType prepreviousPointType) {
+//    return isStrike(prepreviousPointType) && isDoubleBonus(previousPointType);
+//  }
 
 }
