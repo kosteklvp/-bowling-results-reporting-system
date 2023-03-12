@@ -1,12 +1,14 @@
-package com.kosteklvp.converter;
+package com.kosteklvp.bowling;
 
 import static lombok.AccessLevel.PRIVATE;
 
 import java.util.List;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = PRIVATE)
+@Getter
 public class Game {
 
   List<PlayerPlay> playerPlays;

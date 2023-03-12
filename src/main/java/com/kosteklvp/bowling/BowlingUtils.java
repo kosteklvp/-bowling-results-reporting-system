@@ -24,8 +24,6 @@ public class BowlingUtils {
 
   }
 
-  // metoda dla zywklych
-
   public static boolean isStrike(int numberOfPinsKnockedInRoll) {
     return numberOfPinsKnockedInRoll == MAX_NUMBER_OF_KNOCKED_PINS;
   }

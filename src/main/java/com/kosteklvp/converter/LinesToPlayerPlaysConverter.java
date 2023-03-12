@@ -1,4 +1,4 @@
-package com.kosteklvp.points;
+package com.kosteklvp.converter;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.kosteklvp.converter.Converter;
-import com.kosteklvp.converter.PlayerPlay;
-import com.kosteklvp.frame.Frame;
+import com.kosteklvp.bowling.PlayerPlay;
+import com.kosteklvp.bowling.frame.Frame;
 
 import lombok.NoArgsConstructor;
 

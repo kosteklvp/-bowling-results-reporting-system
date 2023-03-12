@@ -1,12 +1,12 @@
-package com.kosteklvp.frame;
+package com.kosteklvp.bowling.frame;
 
 import static com.kosteklvp.bowling.BowlingUtils.isSpare;
-import static com.kosteklvp.roll.Roll.none;
-import static com.kosteklvp.roll.Roll.of;
-import static com.kosteklvp.roll.Roll.spareOf;
+import static com.kosteklvp.bowling.roll.Roll.none;
+import static com.kosteklvp.bowling.roll.Roll.of;
+import static com.kosteklvp.bowling.roll.Roll.spareOf;
 import static lombok.AccessLevel.PRIVATE;
 
-import com.kosteklvp.roll.Roll;
+import com.kosteklvp.bowling.roll.Roll;
 
 import lombok.NoArgsConstructor;
 import lombok.Setter;

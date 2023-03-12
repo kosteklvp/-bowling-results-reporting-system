@@ -1,4 +1,4 @@
-package com.kosteklvp.roll;
+package com.kosteklvp.bowling.roll;
 
 enum RollType {
   NONE,

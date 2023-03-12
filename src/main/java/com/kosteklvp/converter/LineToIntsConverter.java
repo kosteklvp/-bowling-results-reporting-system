@@ -1,11 +1,9 @@
-package com.kosteklvp.points;
+package com.kosteklvp.converter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.kosteklvp.converter.Converter;
 
 public class LineToIntsConverter implements Converter<String, List<Integer>> {
 

@@ -1,13 +1,14 @@
-package com.kosteklvp.converter;
+package com.kosteklvp.bowling;
 
-import static com.kosteklvp.roll.RollUtils.getTrueRolls;
 import static lombok.AccessLevel.PRIVATE;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kosteklvp.frame.Frame;
-import com.kosteklvp.roll.Roll;
+import com.google.common.collect.Iterables;
+import com.kosteklvp.bowling.frame.Frame;
+import com.kosteklvp.bowling.roll.Roll;
+import com.kosteklvp.bowling.roll.RollUtils;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,15 +23,20 @@ public class PlayerPlay {
   private List<Frame> frames;
 
   public List<Roll> getAllTrueRolls() {
+    return RollUtils.getTrueRolls(getAllRolls());
+  }
+
+  public List<Roll> getAllRolls() {
     List<Roll> rolls = new ArrayList<>();
 
     frames.forEach(frame -> {
       rolls.add(frame.getFirstRoll());
       rolls.add(frame.getSecondRoll());
-      rolls.add(frame.getThirdRoll());
     });
 
-    return getTrueRolls(rolls);
+    rolls.add(Iterables.getLast(frames).getThirdRoll());
+
+    return rolls;
   }
 
   public static PlayerPlay create(String playerName, List<Frame> frames) {

@@ -1,12 +1,12 @@
-package com.kosteklvp.roll;
+package com.kosteklvp.bowling.roll;
 
 import static com.kosteklvp.bowling.BowlingUtils.MAX_NUMBER_OF_KNOCKED_PINS;
-import static com.kosteklvp.roll.RollType.NONE;
-import static com.kosteklvp.roll.RollType.NORMAL;
-import static com.kosteklvp.roll.RollType.SPARE;
-import static com.kosteklvp.roll.RollType.STRIKE;
-import static com.kosteklvp.roll.RollType.TENTH_FRAME_SPARE;
-import static com.kosteklvp.roll.RollType.TENTH_FRAME_STRIKE;
+import static com.kosteklvp.bowling.roll.RollType.NONE;
+import static com.kosteklvp.bowling.roll.RollType.NORMAL;
+import static com.kosteklvp.bowling.roll.RollType.SPARE;
+import static com.kosteklvp.bowling.roll.RollType.STRIKE;
+import static com.kosteklvp.bowling.roll.RollType.TENTH_FRAME_SPARE;
+import static com.kosteklvp.bowling.roll.RollType.TENTH_FRAME_STRIKE;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.kosteklvp.utils.Utils;

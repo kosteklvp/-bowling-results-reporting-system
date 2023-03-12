@@ -1,4 +1,4 @@
-package com.kosteklvp.points;
+package com.kosteklvp.converter;
 
 import static com.kosteklvp.bowling.BowlingUtils.NUMBER_OF_NORMAL_FRAMES_IN_A_GAME;
 import static com.kosteklvp.bowling.BowlingUtils.isStrike;
@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.kosteklvp.converter.Converter;
-import com.kosteklvp.frame.Frame;
-import com.kosteklvp.frame.NormalFrame;
-import com.kosteklvp.frame.TenthFrame;
+import com.kosteklvp.bowling.frame.Frame;
+import com.kosteklvp.bowling.frame.NormalFrame;
+import com.kosteklvp.bowling.frame.TenthFrame;
 
 public class IntsToFramesConverter implements Converter<List<Integer>, List<Frame>> {
 
@@ -45,6 +44,7 @@ public class IntsToFramesConverter implements Converter<List<Integer>, List<Fram
     return frames;
   }
 
+  // TODO refractor
   private Frame createTenthFrame(Iterator<Integer> iterator) {
     Integer numberOfPinsKnockedInFirstRoll = iterator.next();
     Integer numberOfPinsKnockedInSecondRoll = iterator.next();

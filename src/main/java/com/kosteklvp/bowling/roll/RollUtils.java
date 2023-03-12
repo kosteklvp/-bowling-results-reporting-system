@@ -1,8 +1,8 @@
-package com.kosteklvp.roll;
+package com.kosteklvp.bowling.roll;
 
-import static com.kosteklvp.roll.RollType.NONE;
-import static com.kosteklvp.roll.RollType.SPARE;
-import static com.kosteklvp.roll.RollType.STRIKE;
+import static com.kosteklvp.bowling.roll.RollType.NONE;
+import static com.kosteklvp.bowling.roll.RollType.SPARE;
+import static com.kosteklvp.bowling.roll.RollType.STRIKE;
 import static java.util.Objects.nonNull;
 import static lombok.AccessLevel.PRIVATE;
 

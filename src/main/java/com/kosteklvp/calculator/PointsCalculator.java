@@ -1,8 +1,8 @@
-package com.kosteklvp.points;
+package com.kosteklvp.calculator;
 
-import com.kosteklvp.converter.PlayerPlay;
-import com.kosteklvp.roll.Roll;
-import com.kosteklvp.roll.RollUtils;
+import com.kosteklvp.bowling.PlayerPlay;
+import com.kosteklvp.bowling.roll.Roll;
+import com.kosteklvp.bowling.roll.RollUtils;
 
 public class PointsCalculator { // TODO dodac interfejs
 

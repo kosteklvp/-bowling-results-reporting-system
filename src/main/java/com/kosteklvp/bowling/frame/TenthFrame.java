@@ -1,14 +1,14 @@
-package com.kosteklvp.frame;
+package com.kosteklvp.bowling.frame;
 
 import static com.kosteklvp.bowling.BowlingUtils.isSpare;
 import static com.kosteklvp.bowling.BowlingUtils.isStrike;
-import static com.kosteklvp.roll.Roll.of;
-import static com.kosteklvp.roll.Roll.tenthFrameSpareOf;
-import static com.kosteklvp.roll.Roll.tenthFrameStrike;
+import static com.kosteklvp.bowling.roll.Roll.of;
+import static com.kosteklvp.bowling.roll.Roll.tenthFrameSpareOf;
+import static com.kosteklvp.bowling.roll.Roll.tenthFrameStrike;
 import static java.util.Objects.nonNull;
 import static lombok.AccessLevel.PRIVATE;
 
-import com.kosteklvp.roll.Roll;
+import com.kosteklvp.bowling.roll.Roll;
 
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,6 +36,7 @@ public class TenthFrame implements Frame {
     return thirdRoll;
   }
 
+  // TODO refaktor
   public static Frame create(Integer numberOfPinsKnockedInFirstRoll,
       Integer numberOfPinsKnockedInSecondRoll, Integer numberOfPinsKnockedInThirdRoll) {
     TenthFrame frame = new TenthFrame();

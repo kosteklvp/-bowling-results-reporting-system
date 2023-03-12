@@ -1,6 +1,6 @@
-package com.kosteklvp.frame;
+package com.kosteklvp.bowling.frame;
 
-import com.kosteklvp.roll.Roll;
+import com.kosteklvp.bowling.roll.Roll;
 
 public interface Frame {
 

@@ -3,10 +3,11 @@ package com.kosteklvp;
 import java.io.IOException;
 import java.util.List;
 
-import com.kosteklvp.converter.Game;
-import com.kosteklvp.converter.PlayerPlay;
-import com.kosteklvp.points.LinesToPlayerPlaysConverter;
+import com.kosteklvp.bowling.Game;
+import com.kosteklvp.bowling.PlayerPlay;
+import com.kosteklvp.converter.LinesToPlayerPlaysConverter;
 import com.kosteklvp.reader.FileReader;
+import com.kosteklvp.table.TableCreator;
 
 public class Application {
 
@@ -17,9 +18,11 @@ public class Application {
   private static void run(String pathToFile) throws IOException {
     Game game = createGameFromFile(pathToFile);
 
+    TableCreator.of(game).create();
+
 //    List<Row> rows = RowCreator.instance(new RowConverter(LineToIntsConverter.instance()), lines).getAllRows();
 //
-//    System.out.print(new TableGenerator(rows).generate());
+    System.out.print(TableCreator.of(game).create());
   }
 
   private static Game createGameFromFile(String pathToFile) throws IOException {

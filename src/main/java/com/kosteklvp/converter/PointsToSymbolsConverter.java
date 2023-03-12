@@ -1,11 +1,10 @@
-package com.kosteklvp.points;
+package com.kosteklvp.converter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.kosteklvp.bowling.BowlingUtils;
 import com.kosteklvp.bowling.BowlingUtils.PointsType;
-import com.kosteklvp.converter.Converter;
 import com.kosteklvp.utils.Utils;
 
 public class PointsToSymbolsConverter implements Converter<List<Integer>, List<Character>> {
