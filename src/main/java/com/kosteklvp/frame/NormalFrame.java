@@ -1,52 +1,50 @@
 package com.kosteklvp.frame;
 
-import static com.kosteklvp.bowling.BowlingUtils.MAX_NUMBER_OF_KNOCKED_PINS;
+import static com.kosteklvp.bowling.BowlingUtils.isSpare;
+import static com.kosteklvp.roll.Roll.none;
+import static com.kosteklvp.roll.Roll.of;
+import static com.kosteklvp.roll.Roll.spareOf;
 import static lombok.AccessLevel.PRIVATE;
 
-import com.kosteklvp.bowling.BowlingUtils;
+import com.kosteklvp.roll.Roll;
 
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor(access = PRIVATE)
 @Setter(PRIVATE)
-public class NormalFrame implements FrameWithType {
+public class NormalFrame implements Frame {
 
-  private Integer numberOfPinsKnockedInFirstRoll;
-  private Integer numberOfPinsKnockedInSecondRoll;
-  private FrameType type = FrameType.NONE;
+  private Roll firstRoll;
+  private Roll secondRoll;
 
-  // TODO null chack
   @Override
-  public int getPoints() {
-    return numberOfPinsKnockedInFirstRoll + numberOfPinsKnockedInSecondRoll;
+  public Roll getFirstRoll() {
+    return firstRoll;
   }
 
   @Override
-  public boolean isSpare() {
-    return FrameType.STRIKE.equals(type);
+  public Roll getSecondRoll() {
+    return secondRoll;
   }
 
-  @Override
-  public boolean isStrike() {
-    return FrameType.STRIKE.equals(type);
-  }
-
-  public static NormalFrame create(Integer first, Integer second) {
+  public static NormalFrame create(Integer numberOfPinsKnockedInFirstRoll, Integer numberOfPinsKnockedInSecondRoll) {
     NormalFrame frame = new NormalFrame();
-    frame.setNumberOfPinsKnockedInFirstRoll(first);
-    frame.setNumberOfPinsKnockedInSecondRoll(second);
+    frame.setFirstRoll(of(numberOfPinsKnockedInFirstRoll));
 
-    if (BowlingUtils.isSpare(first, second)) {
-      frame.setType(FrameType.SPARE);
+    if (isSpare(numberOfPinsKnockedInFirstRoll, numberOfPinsKnockedInSecondRoll)) {
+      frame.setSecondRoll(spareOf(numberOfPinsKnockedInSecondRoll));
+    } else {
+      frame.setSecondRoll(of(numberOfPinsKnockedInSecondRoll));
     }
 
     return frame;
   }
 
   public static Frame strike() {
-    NormalFrame frame = create(null, MAX_NUMBER_OF_KNOCKED_PINS);
-    frame.setType(FrameType.STRIKE);
+    NormalFrame frame = new NormalFrame();
+    frame.setFirstRoll(none());
+    frame.setSecondRoll(Roll.strike());
 
     return frame;
   }

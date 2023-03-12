@@ -7,17 +7,21 @@ import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import com.kosteklvp.converter.PlayerPlay;
+
 class PointsCalculatorTest {
 
   PointsCalculator calculator = new PointsCalculator();
+  IntsToFramesConverter intsToFramesConverter = new IntsToFramesConverter();
 
   @ParameterizedTest
   @MethodSource("com.kosteklvp.data.DataFactory#pointsAndResultProvider")
-  void calculateResultOfThrowsSequence(int expectedResult, List<Integer> points) {
+  void calculateResultOfPlayerPlay(int expectedResult, List<Integer> points) {
+    PlayerPlay playerPlay = PlayerPlay.create("Lucas Perez", intsToFramesConverter.convert(points));
 
-    int result = calculator.calculateResult(points);
+    int result = calculator.calculateResult(playerPlay);
 
-    assertThat(result).isSameAs(expectedResult);
+    assertThat(result).isEqualTo(expectedResult);
   }
 
 }

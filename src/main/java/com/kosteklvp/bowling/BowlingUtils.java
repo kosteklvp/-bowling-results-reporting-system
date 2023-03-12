@@ -26,34 +26,13 @@ public class BowlingUtils {
 
   // metoda dla zywklych
 
-  public static boolean isStrike(int numberOfPinsKnockedInFirstRoll) {
-    return numberOfPinsKnockedInFirstRoll == MAX_NUMBER_OF_KNOCKED_PINS;
+  public static boolean isStrike(int numberOfPinsKnockedInRoll) {
+    return numberOfPinsKnockedInRoll == MAX_NUMBER_OF_KNOCKED_PINS;
   }
 
   public static boolean isSpare(int numberOfPinsKnockedInFirstRoll, int numberOfPinsKnockedInSecondRoll) {
     return numberOfPinsKnockedInFirstRoll + numberOfPinsKnockedInSecondRoll == MAX_NUMBER_OF_KNOCKED_PINS &&
-        numberOfPinsKnockedInFirstRoll != MAX_NUMBER_OF_KNOCKED_PINS &&
-        numberOfPinsKnockedInSecondRoll != MAX_NUMBER_OF_KNOCKED_PINS;
+        numberOfPinsKnockedInFirstRoll != MAX_NUMBER_OF_KNOCKED_PINS;
   }
-
-//  public static boolean isSpare(int numberOfPinsKnockedInFirstRoll, int numberOfPinsKnockedInSecondRoll) {
-//    return numberOfPinsKnockedInFirstRoll + numberOfPinsKnockedInSecondRoll == MAX_NUMBER_OF_KNOCKED_PINS;
-//  }
-
-//  public static boolean isStrike(PointsType type) {
-//    return type == PointsType.STRIKE;
-//  }
-//
-//  public static boolean isSpare(PointsType type) {
-//    return type == PointsType.SPARE;
-//  }
-//
-//  public static boolean isDoubleBonus(PointsType previousPointType) {
-//    return isSpare(previousPointType) || isStrike(previousPointType);
-//  }
-//
-//  public static boolean isTripleBonus(PointsType previousPointType, PointsType prepreviousPointType) {
-//    return isStrike(prepreviousPointType) && isDoubleBonus(previousPointType);
-//  }
 
 }

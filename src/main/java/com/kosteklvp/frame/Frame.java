@@ -1,7 +1,15 @@
 package com.kosteklvp.frame;
 
+import com.kosteklvp.roll.Roll;
+
 public interface Frame {
 
-  int getPoints();
+  Roll getFirstRoll();
+
+  Roll getSecondRoll();
+
+  default Roll getThirdRoll() {
+    return null;
+  }
 
 }

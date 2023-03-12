@@ -1,11 +1,12 @@
 package com.kosteklvp.converter;
 
+import static lombok.AccessLevel.PRIVATE;
+
 import java.util.List;
 
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = PRIVATE)
 public class Game {
 
   List<PlayerPlay> playerPlays;

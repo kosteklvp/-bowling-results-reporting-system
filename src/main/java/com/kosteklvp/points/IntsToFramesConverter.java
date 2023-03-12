@@ -46,7 +46,11 @@ public class IntsToFramesConverter implements Converter<List<Integer>, List<Fram
   }
 
   private Frame createTenthFrame(Iterator<Integer> iterator) {
-    return TenthFrame.create(iterator.next(), iterator.next(), iterator.next());
+    Integer numberOfPinsKnockedInFirstRoll = iterator.next();
+    Integer numberOfPinsKnockedInSecondRoll = iterator.next();
+    Integer numberOfPinsKnockedInThirdRoll = iterator.hasNext() ? iterator.next() : null;
+
+    return TenthFrame.create(numberOfPinsKnockedInFirstRoll, numberOfPinsKnockedInSecondRoll, numberOfPinsKnockedInThirdRoll);
   }
 
 }
