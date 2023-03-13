@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+import com.kosteklvp.data.DataFactory.ExampleFile;
+
 class FileReaderTest {
 
   @Nested
@@ -25,26 +27,6 @@ class FileReaderTest {
       assertThat(lines).noneMatch(StringUtils::isBlank);
     }
 
-  }
-
-  private enum ExampleFile {
-    EXAMPLE_1("src/main/resources/examples/example1.txt"),
-    EXAMPLE_2("src/main/resources/examples/example2.txt"),
-    EXAMPLE_3("src/main/resources/examples/example3.txt"),
-    EXAMPLE_4("src/main/resources/examples/example4.txt"),
-    EXAMPLE_5("src/main/resources/examples/example5.txt"),
-    EXAMPLE_6("src/main/resources/examples/example6.txt"),
-    EXAMPLE_7("src/main/resources/examples/example7.txt");
-
-    private final String path;
-
-    ExampleFile(String path) {
-      this.path = path;
-    }
-
-    private String getPath() {
-      return path;
-    }
   }
 
 }

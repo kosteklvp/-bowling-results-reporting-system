@@ -33,7 +33,7 @@ public class TableCreator {
   }
 
   private void createHeaders() {
-    tableText.append(" ").append(StringUtils.repeat("_", getTableLength())).append("\n");
+    tableText.append(" ").append(StringUtils.repeat("-", getTableLength())).append("\n");
     tableText.append("| ");
     TableHeader.getAll().forEach(header -> tableText.append(header.getLabel())
         .append(StringUtils.repeat(" ", TableHeader.PLAYER.equals(header) ? getAdditionalLengthAfterPlayerHeader() : 0)).append(" | "));
@@ -53,7 +53,7 @@ public class TableCreator {
   }
 
   private void createEnding() {
-    tableText.append(" ").append(StringUtils.repeat("-", getTableLength()));
+    tableText.append(" ").append(StringUtils.repeat("-", getTableLength())).append("\n");
   }
 
   private String getAdditionalSpaceBeforeScore(int score) {

@@ -145,4 +145,24 @@ public class DataFactory {
     return Stream.of(-100, -10, 11, 232, 1343, 10);
   }
 
+  public enum ExampleFile {
+    EXAMPLE_1("src/test/resources/examples/example1.txt"),
+    EXAMPLE_2("src/test/resources/examples/example2.txt"),
+    EXAMPLE_3("src/test/resources/examples/example3.txt"),
+    EXAMPLE_4("src/test/resources/examples/example4.txt"),
+    EXAMPLE_5("src/test/resources/examples/example5.txt"),
+    EXAMPLE_6("src/test/resources/examples/example6.txt"),
+    EXAMPLE_7("src/test/resources/examples/example7.txt");
+
+    private final String path;
+
+    ExampleFile(String path) {
+      this.path = path;
+    }
+
+    public String getPath() {
+      return path;
+    }
+  }
+
 }

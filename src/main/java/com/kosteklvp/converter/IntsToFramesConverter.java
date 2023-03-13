@@ -10,6 +10,7 @@ import java.util.List;
 import com.kosteklvp.bowling.frame.Frame;
 import com.kosteklvp.bowling.frame.NormalFrame;
 import com.kosteklvp.bowling.frame.TenthFrame;
+import com.kosteklvp.exception.IncorrectNumberOfNumbersException;
 
 public class IntsToFramesConverter implements Converter<List<Integer>, List<Frame>> {
 
@@ -45,9 +46,13 @@ public class IntsToFramesConverter implements Converter<List<Integer>, List<Fram
   }
 
   private Frame createTenthFrame(Iterator<Integer> iterator) {
-    Integer numberOfPinsKnockedInFirstRoll = iterator.next();
-    Integer numberOfPinsKnockedInSecondRoll = iterator.next();
+    Integer numberOfPinsKnockedInFirstRoll = iterator.hasNext() ? iterator.next() : null;
+    Integer numberOfPinsKnockedInSecondRoll = iterator.hasNext() ? iterator.next() : null;
     Integer numberOfPinsKnockedInThirdRoll = iterator.hasNext() ? iterator.next() : null;
+
+    if (numberOfPinsKnockedInFirstRoll == null || numberOfPinsKnockedInSecondRoll == null) {
+      throw new IncorrectNumberOfNumbersException();
+    }
 
     return TenthFrame.create(numberOfPinsKnockedInFirstRoll, numberOfPinsKnockedInSecondRoll, numberOfPinsKnockedInThirdRoll);
   }

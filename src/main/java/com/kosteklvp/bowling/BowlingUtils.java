@@ -2,8 +2,12 @@ package com.kosteklvp.bowling;
 
 public class BowlingUtils {
 
+  public static final int MIN_NUMBER_OF_ROLLS = 11;
   public static final int MAX_NUMBER_OF_ROLLS = 21;
+
+  public static final int MIN_NUMBER_OF_KNOCKED_PINS = 0;
   public static final int MAX_NUMBER_OF_KNOCKED_PINS = 10;
+
   public static final int NUMBER_OF_NORMAL_FRAMES_IN_A_GAME = 9;
 
   public static boolean isStrike(int numberOfPinsKnockedInRoll) {
