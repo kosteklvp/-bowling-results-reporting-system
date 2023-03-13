@@ -8,6 +8,9 @@ Download executable jar file from **Releases** section and run it in command lin
 
 ![example-cmd](https://user-images.githubusercontent.com/29569674/224686413-9d76b4c9-c8d8-4547-b5d5-c9a9afc577e6.jpg)
 
+#### Characters explanation
+    [/] - spare , [X] - strike, [ ] - precedes a strike / no roll
+
 **example.txt**
 
     Kamil Stoch
@@ -20,6 +23,9 @@ Download executable jar file from **Releases** section and run it in command lin
     9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0
 
 More example files can be found in [/examples](https://github.com/kosteklvp/bowling-results-reporting-system/tree/main/examples) folder.
+
+File should contain lines with the player's name and a sequence of points alternating. Blank lines in between are allowed.
+Only numbers between 0 and 10 are allowed. There can be from 11 to 21 numbers in one player sequence.
 
 ## Used tooling
 
