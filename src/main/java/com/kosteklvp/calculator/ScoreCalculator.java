@@ -14,11 +14,11 @@ public class ScoreCalculator {
 
     for (Roll roll : playerPlay.getAllTrueRolls()) {
       if (isTriplePoints(previousRoll, prepreviousRoll)) {
-        score = score + 3 * roll.getNumberOfKnockedPins();
+        score += 3 * roll.getNumberOfKnockedPins();
       } else if (isDoublePoints(previousRoll, prepreviousRoll)) {
-        score = score + 2 * roll.getNumberOfKnockedPins();
+        score += 2 * roll.getNumberOfKnockedPins();
       } else {
-        score = score + roll.getNumberOfKnockedPins();
+        score += roll.getNumberOfKnockedPins();
       }
 
       prepreviousRoll = previousRoll;
@@ -29,11 +29,11 @@ public class ScoreCalculator {
   }
 
   private boolean isDoublePoints(Roll previousRoll, Roll prepreviousRoll) {
-    return (RollUtils.isSpare(previousRoll) || RollUtils.isStrike(previousRoll)) || RollUtils.isStrike(prepreviousRoll);
+    return RollUtils.isSpareOrStrike(previousRoll) || RollUtils.isStrike(prepreviousRoll);
   }
 
   private boolean isTriplePoints(Roll previousRoll, Roll prepreviousRoll) {
-    return RollUtils.isStrike(prepreviousRoll) && (RollUtils.isSpare(previousRoll) || RollUtils.isStrike(previousRoll));
+    return RollUtils.isStrike(prepreviousRoll) && RollUtils.isSpareOrStrike(previousRoll);
   }
 
 }

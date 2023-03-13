@@ -1,5 +1,7 @@
 package com.kosteklvp.converter;
 
+import static lombok.AccessLevel.PRIVATE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,12 @@ import com.kosteklvp.bowling.BowlingUtils;
 import com.kosteklvp.bowling.BowlingUtils.PointsType;
 import com.kosteklvp.utils.Utils;
 
-public class PointsToSymbolsConverter implements Converter<List<Integer>, List<Character>> {
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = PRIVATE)
+public class KnockedPinsToSymbolsConverter implements Converter<List<Integer>, List<Character>> {
+
+  private static final KnockedPinsToSymbolsConverter INSTANCE = new KnockedPinsToSymbolsConverter();
 
   @Override
   public List<Character> convert(List<Integer> points) {
@@ -38,7 +45,10 @@ public class PointsToSymbolsConverter implements Converter<List<Integer>, List<C
     return symbols;
   }
 
+  public static KnockedPinsToSymbolsConverter instance() {
+    return INSTANCE;
+  }
+
   // test czy dodaj ostatnią spację
-  // TODO singleton
 
 }

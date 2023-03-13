@@ -11,7 +11,7 @@ import com.kosteklvp.bowling.frame.Frame;
 import com.kosteklvp.bowling.frame.NormalFrame;
 import com.kosteklvp.bowling.frame.TenthFrame;
 
-public class IntsToFramesConverter implements Converter<List<Integer>, List<Frame>> {
+class IntsToFramesConverter implements Converter<List<Integer>, List<Frame>> {
 
   @Override
   public List<Frame> convert(List<Integer> ints) {
@@ -52,5 +52,7 @@ public class IntsToFramesConverter implements Converter<List<Integer>, List<Fram
 
     return TenthFrame.create(numberOfPinsKnockedInFirstRoll, numberOfPinsKnockedInSecondRoll, numberOfPinsKnockedInThirdRoll);
   }
+
+  // TODO testy
 
 }

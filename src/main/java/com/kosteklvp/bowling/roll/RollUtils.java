@@ -21,6 +21,10 @@ public class RollUtils {
     return nonNull(roll) && STRIKE.equals(roll.getType());
   }
 
+  public static boolean isSpareOrStrike(Roll roll) {
+    return isSpare(roll) || isStrike(roll);
+  }
+
   public static boolean isNone(Roll roll) {
     return nonNull(roll) && NONE.equals(roll.getType());
   }

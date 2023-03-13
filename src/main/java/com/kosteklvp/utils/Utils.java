@@ -1,14 +1,15 @@
 package com.kosteklvp.utils;
 
 import static java.util.Objects.isNull;
+import static lombok.AccessLevel.PRIVATE;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = PRIVATE)
 public class Utils {
 
-  private Utils() {
-  }
-
   public static char toChar(Integer integer) {
-    return Integer.toString(integer).charAt(0);
+    return Integer.toString(nn(integer)).charAt(0);
   }
 
   /**
