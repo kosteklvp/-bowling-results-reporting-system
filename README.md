@@ -11,7 +11,7 @@ Download executable jar file from **Releases** section and run it in command lin
 #### Characters explanation
     [/] - spare , [X] - strike, [ ] - precedes a strike / no roll
 
-**example.txt**
+#### Example text file
 
     Kamil Stoch
     1, 9, 0, 9, 9, 0, 6, 0, 1, 5, 7, 0, 8, 2, 7, 0, 9, 0, 10, 10, 0
