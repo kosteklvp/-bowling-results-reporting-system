@@ -2,6 +2,7 @@ package com.kosteklvp.reader;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Collections.emptyList;
+import static lombok.AccessLevel.PRIVATE;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,13 +12,12 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor(access = PRIVATE)
 public class FileReader {
 
   private final Path pathToFile;
-
-  private FileReader(String path) {
-    this.pathToFile = Paths.get(path);
-  }
 
   public List<String> readAllLines() throws IOException {
     List<String> lines = emptyList();
@@ -36,7 +36,7 @@ public class FileReader {
   }
 
   public static FileReader of(String path) {
-    return new FileReader(path);
+    return new FileReader(Paths.get(path));
   }
 
 }

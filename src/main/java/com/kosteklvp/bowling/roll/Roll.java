@@ -24,7 +24,15 @@ public class Roll {
   private RollType type;
 
   public Integer getNumberOfKnockedPins() {
-    return Utils.nn(numberOfKnockedPins);
+    return numberOfKnockedPins;
+  }
+
+  public char getSymbolOfKnockedPins() {
+    if (RollType.NORMAL.equals(type)) {
+      return Utils.toChar(Utils.nn(numberOfKnockedPins));
+    }
+
+    return type.getSymbol();
   }
 
   public static Roll of(Integer numberOfKnockedPins) {

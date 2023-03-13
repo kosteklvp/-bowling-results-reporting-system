@@ -28,6 +28,7 @@ public class NormalFrame implements Frame {
     return secondRoll;
   }
 
+  // TODO refactor this method
   public static NormalFrame create(Integer numberOfPinsKnockedInFirstRoll, Integer numberOfPinsKnockedInSecondRoll) {
     NormalFrame frame = new NormalFrame();
     frame.setFirstRoll(of(numberOfPinsKnockedInFirstRoll));

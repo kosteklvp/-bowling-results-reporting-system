@@ -3,6 +3,7 @@ package com.kosteklvp.calculator;
 import com.kosteklvp.bowling.PlayerPlay;
 import com.kosteklvp.bowling.roll.Roll;
 import com.kosteklvp.bowling.roll.RollUtils;
+import com.kosteklvp.utils.Utils;
 
 public class ScoreCalculator {
 
@@ -13,12 +14,14 @@ public class ScoreCalculator {
     Roll previousRoll = null;
 
     for (Roll roll : playerPlay.getAllTrueRolls()) {
+      int numberOfKnockedPins = Utils.nn(roll.getNumberOfKnockedPins());
+
       if (isTriplePoints(previousRoll, prepreviousRoll)) {
-        score += 3 * roll.getNumberOfKnockedPins();
+        score += 3 * numberOfKnockedPins;
       } else if (isDoublePoints(previousRoll, prepreviousRoll)) {
-        score += 2 * roll.getNumberOfKnockedPins();
+        score += 2 * numberOfKnockedPins;
       } else {
-        score += roll.getNumberOfKnockedPins();
+        score += numberOfKnockedPins;
       }
 
       prepreviousRoll = previousRoll;

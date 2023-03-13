@@ -137,4 +137,12 @@ public class DataFactory {
         "10, 10, 9, 1, 9, 0, 9, 0, 5, 4, 10, 9, 0, 9, 1, 10, 4, 4");
   }
 
+  public static Stream<Integer> singleDigitIntegersProvider() {
+    return Stream.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+  }
+
+  public static Stream<Integer> multiDigitIntegersProvider() {
+    return Stream.of(-100, -10, 11, 232, 1343, 10);
+  }
+
 }

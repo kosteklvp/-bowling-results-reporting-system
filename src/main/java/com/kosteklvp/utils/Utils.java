@@ -8,8 +8,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = PRIVATE)
 public class Utils {
 
-  public static char toChar(Integer integer) {
-    return Integer.toString(nn(integer)).charAt(0);
+  public static char toChar(int integer) {
+    if (integer < 0 || integer > 9) {
+      throw new IncorrectValueException();
+    }
+
+    return Integer.toString(integer).charAt(0);
   }
 
   /**

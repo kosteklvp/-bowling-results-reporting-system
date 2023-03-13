@@ -1,5 +1,6 @@
 package com.kosteklvp;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -12,6 +13,10 @@ import com.kosteklvp.table.TableCreator;
 public class Application {
 
   public static void main(String[] args) throws IOException {
+    if (args.length == 0) {
+      throw new FileNotFoundException("Path to file needs to be added as a parameter.");
+    }
+
     Application.run(args[0]);
   }
 

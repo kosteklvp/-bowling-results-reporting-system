@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class LineToIntsConverter implements Converter<String, List<Integer>> {
+public class LineToIntsConverter implements Converter<String, List<Integer>> {
 
   @Override
   public List<Integer> convert(String line) {
@@ -20,7 +20,5 @@ class LineToIntsConverter implements Converter<String, List<Integer>> {
 
     return ints;
   }
-
-  // TODO testy
 
 }

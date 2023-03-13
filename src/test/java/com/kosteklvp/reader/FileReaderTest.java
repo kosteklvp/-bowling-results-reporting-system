@@ -27,8 +27,6 @@ class FileReaderTest {
 
   }
 
-  // brak plikue exception
-
   private enum ExampleFile {
     EXAMPLE_1("src/main/resources/examples/example1.txt"),
     EXAMPLE_2("src/main/resources/examples/example2.txt"),

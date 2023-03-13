@@ -49,7 +49,7 @@ public class TableCreator {
     playerPlay.getAllSymbols().forEach(symbol -> tableText.append(" ").append(symbol).append(" | "));
 
     int score = scoreCalculator.calculate(playerPlay);
-    tableText.append(getAdditionalSpaceBeforeScore(score)).append(score).append("  |").append("\n");
+    tableText.append(getAdditionalSpaceBeforeScore(score)).append(score).append(" |").append("\n");
   }
 
   private void createEnding() {
@@ -57,8 +57,7 @@ public class TableCreator {
   }
 
   private String getAdditionalSpaceBeforeScore(int score) {
-    final int MAX_SPACE = 4;
-    return StringUtils.repeat(" ", MAX_SPACE - String.valueOf(score).length());
+    return StringUtils.repeat(" ", TableHeader.SCORE.getLabel().length() - String.valueOf(score).length());
   }
 
   private String getAdditionalSpaceAfterPlayerName(String playerName) {

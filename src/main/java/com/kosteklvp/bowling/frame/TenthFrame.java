@@ -36,7 +36,7 @@ public class TenthFrame implements Frame {
     return thirdRoll;
   }
 
-  // TODO refaktor
+  // TODO refactor this method
   public static Frame create(Integer numberOfPinsKnockedInFirstRoll,
       Integer numberOfPinsKnockedInSecondRoll, Integer numberOfPinsKnockedInThirdRoll) {
     TenthFrame frame = new TenthFrame();
