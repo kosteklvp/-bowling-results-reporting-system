@@ -6,6 +6,9 @@ This is an application for reporting bowling results in a table. The user of the
 
 Download executable jar file from **Releases** section and run it in command line. As the first argument, you must specify the path to the text file with the sequence of game results. Java 17 is required to run it.
 
+#### Command
+    java -jar brrs-1.0.jar example.txt
+
 ![example-cmd](https://user-images.githubusercontent.com/29569674/224686413-9d76b4c9-c8d8-4547-b5d5-c9a9afc577e6.jpg)
 
 #### Characters explanation
