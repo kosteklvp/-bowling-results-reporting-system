@@ -29,10 +29,3 @@ More example files can be found in [/examples](https://github.com/kosteklvp/bowl
 
 File should contain lines with the player's name and a sequence of points alternating. Blank lines in between are allowed.
 Only numbers between 0 and 10 are allowed. There can be from 11 to 21 numbers in one player sequence.
-
-## Used tooling
-
-- Java 17
-- Maven 4.0.0-alpha
-- JUnit 5
-- Eclipse 2022-12
