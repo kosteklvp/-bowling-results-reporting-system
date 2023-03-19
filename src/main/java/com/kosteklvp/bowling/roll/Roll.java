@@ -9,6 +9,8 @@ import static com.kosteklvp.bowling.roll.RollType.TENTH_FRAME_SPARE;
 import static com.kosteklvp.bowling.roll.RollType.TENTH_FRAME_STRIKE;
 import static lombok.AccessLevel.PRIVATE;
 
+import java.util.Objects;
+
 import com.kosteklvp.utils.Utils;
 
 import lombok.Getter;
@@ -33,6 +35,23 @@ public class Roll {
     }
 
     return type.getSymbol();
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(numberOfKnockedPins, type);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Roll other = (Roll) obj;
+    return Objects.equals(numberOfKnockedPins, other.numberOfKnockedPins) && type == other.type;
   }
 
   public static Roll of(Integer numberOfKnockedPins) {

@@ -9,11 +9,14 @@ import com.kosteklvp.bowling.PlayerPlay
 import com.kosteklvp.converter.IntsToFramesConverter
 
 import spock.lang.Specification
+import spock.lang.Subject
 import spock.lang.Unroll
 
 class ScoreCalculatorSpec extends Specification {
 
-  ScoreCalculator calculator = new ScoreCalculator()
+  @Subject
+  def calculator = new ScoreCalculator()
+
   IntsToFramesConverter intsToFramesConverter = new IntsToFramesConverter()
 
   @Unroll
